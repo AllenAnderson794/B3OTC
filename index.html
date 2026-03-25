@@ -181,11 +181,9 @@ h1{
 .floating-sidebar {
   position: fixed;
   top: 55px;
-  margin-right: 5%;              /* 👈 use RIGHT instead of LEFT */
-  margin-left: auto;               /* 👈 important: cancel left */
+  right: 5%;              /* 👈 use RIGHT instead of LEFT */
+  left: auto;               /* 👈 important: cancel left */
   transform: translateY(-50%);
-
-  justify-content: center;
   
   display: flex;
   flex-direction: row;
@@ -345,6 +343,19 @@ html {
         justify-content: center;
     }
 
+    /* Sidebar smaller */
+    .floating-sidebar{
+        left: 10px;
+        padding: 10px 6px;
+        gap: 15px;
+    }
+
+    .floating-sidebar a{
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
     /* Logo smaller */
     .logo-header{
         top: 20px;
@@ -361,22 +372,19 @@ html {
     }
 
     .floating-sidebar{
-        position: fixed;
-        top: 75px;
-        left: auto;
-        right: auto;
+        top: 20px;
+        right: 50%;
         transform: translateX(50%); /* center it */
 
-        display: flex;
         flex-direction: row;
-        gap: 20px; /* reduce gap */
+        gap: 10px; /* reduce gap */
 
         padding: 8px 10px;
     }
 
     .floating-sidebar a{
-        width: 100px;   /* smaller buttons */
-        height: 50px;
+        width: 40px;   /* smaller buttons */
+        height: 40px;
         font-size: 1rem;
     }
     
