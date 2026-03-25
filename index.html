@@ -361,11 +361,13 @@ html {
     }
 
     .floating-sidebar{
+        position: fixed;
         top: 75px;
         left: auto;
         right: auto;
         transform: translateX(50%); /* center it */
 
+        display: flex;
         flex-direction: row;
         gap: 20px; /* reduce gap */
 
