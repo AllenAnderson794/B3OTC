@@ -97,10 +97,6 @@ h1{
     line-height:2;
 }
 
-.subtitle hr{
-    width: 1100px;
-}
-
 /* ===== SECTION ===== */
 .section{
     background: var(--glass);
@@ -185,7 +181,7 @@ h1{
 .floating-sidebar {
   position: fixed;
   top: 55px;
-  right: 40px;              /* 👈 use RIGHT instead of LEFT */
+  right: 5%;              /* 👈 use RIGHT instead of LEFT */
   left: auto;               /* 👈 important: cancel left */
   transform: translateY(-50%);
 
@@ -377,10 +373,22 @@ html {
     }
 
     .floating-sidebar{
-        right: 55px;
-        width: 40px;
-        padding: 10px 4px;
+        top: 20px;
+        right: 50%;
+        transform: translateX(50%); /* center it */
+
+        flex-direction: row;
+        gap: 10px; /* reduce gap */
+
+        padding: 8px 10px;
     }
+
+    .floating-sidebar a{
+        width: 40px;   /* smaller buttons */
+        height: 40px;
+        font-size: 1rem;
+    }
+    
     .stimg{
         max-width: 100%;
         margin: 20px 0;
@@ -415,9 +423,6 @@ html {
 <div class="subtitle">
     A Strong and Reliable Infrastructure Delievering Warm and Efficiant Service with a Trustworthy Digital Assets 
 <br>
-<br>
-<br>
-<hr>
 </div>
 
 <!-- ABOUT -->
