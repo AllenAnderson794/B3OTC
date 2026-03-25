@@ -183,7 +183,7 @@ h1{
   
   display: flex;
   flex-direction: row;
-  gap: 80px;
+  gap: 55px;
 
   width: auto;              /* 👈 fixed width prevents stretching */
   padding: 12px 24px;
@@ -198,7 +198,7 @@ h1{
 .floating-sidebar a {
   width: 100px;
   height: 36px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 
   display: flex;
   align-items: center;
@@ -283,6 +283,26 @@ html {
     line-height: 3;
 }
 
+.chart-wrapper{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.chart-box{
+    width: 100%;
+    max-width: 450px;
+}
+
+.chart-title{
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--sub);
+    font-size: 0.9rem;
+}
+
 @media (max-width: 768px){
 
     /* Make text fit better */
@@ -352,7 +372,7 @@ html {
     }
 
     .floating-sidebar a{
-        width: 60px;   /* smaller buttons */
+        width: 40px;   /* smaller buttons */
         height: 30px;
         font-size: 1rem;
     }
@@ -369,9 +389,10 @@ html {
   <a href="#" title="Top">📘</a>
   <a href="#progress" title="Progress">📊</a>
   <a href="#trust" title="Trust">✅</a>
+  <a href="#charts" title="Chart">📈</a>
   <a href="#status" title="Status">🕒</a>
   <a href="#contact" title="Contact">☎︎</a>
-  <br>
+    <br>
 </div>
 
 <!-- LOGO + COMPANY NAME -->
@@ -407,15 +428,17 @@ html {
         <div class="b3go">
             <a>B 3 G O</a>
             <br>
-            <p style="text-indent: 100px;">
-                B3GO is one of the team that has assigned under the original company name "B3OTC". Currently running by a team leader and team members including an accountant.
-                At B3GO, investor confidence is built on a foundation of trust, discipline, and consistent performance.
-                Investors choose to work with us knowing that their capital is handled with responsibility, precision, and a clear commitment to achieving sustainable growth.
-                We operate with a structured approach to capital management, where every investment is carefully analyzed and strategically positioned.
-                Our role is to manage and utilize invested funds effectively, focusing on identifying opportunities that align with our standards of stability and profitability.
-            </p>
-            <p text-align="center">Below are the some of our team members profiles</p>
-
+            <div class="section-text">
+                <p style="text-indent: 100px;">
+                    B3GO is one of the team that has assigned under the original company name "B3OTC". Currently running by a team leader and team members including an accountant.
+                    At B3GO, investor confidence is built on a foundation of trust, discipline, and consistent performance.
+                    Investors choose to work with us knowing that their capital is handled with responsibility, precision, and a clear commitment to achieving sustainable growth.
+                    We operate with a structured approach to capital management, where every investment is carefully analyzed and strategically positioned.
+                    Our role is to manage and utilize invested funds effectively, focusing on identifying opportunities that align with our standards of stability and profitability.
+                </p>
+                <p text-align="center">Below are the some of our team members profiles</p>
+            </div>
+            
             <a>B3GO Team Profiles</a>
             <br>
             <div class="team">
@@ -495,6 +518,27 @@ html {
   </div>
 </div>
 
+<!-- PERFORMANCE CHART -->
+<div class="section" id="charts">
+  <div class="section-title">Performance Overview</div>
+
+  <div class="chart-wrapper">
+    
+    <!-- Investor Chart -->
+    <div class="chart-box">
+      <div class="chart-title">Investors Growth</div>
+      <canvas id="investorChart"></canvas>
+    </div>
+
+    <!-- Staff Chart -->
+    <div class="chart-box">
+      <div class="chart-title">Staffs Growth</div>
+      <canvas id="staffChart"></canvas>
+    </div>
+
+  </div>
+</div>
+
 <!-- STATUS -->
 <div class="section" id="status">
 <div class="section-title">Office Regulation Status</div>
@@ -561,6 +605,124 @@ window.onload = () => {
         bar.style.width = bar.getAttribute('data-width');
     });
 };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// INVESTOR CHART
+new Chart(document.getElementById('investorChart'), {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Aprl'],
+        datasets: [
+            {
+                label: 'Profit (AED)',
+                data: [2000, 2700, 1500, 3000, 2500, 3300], // increased values
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59,130,246,0.2)',
+                tension: 0.4,
+                fill: true
+            },
+            {
+                label: 'Loss (AED)',
+                data: [400, 350, 500, 420, 380, 300], // increased values
+                borderColor: '#ef4444',
+                backgroundColor: 'rgba(239,68,68,0.2)',
+                tension: 0.4,
+                fill: true
+            }
+        ]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: { color: '#ffffff' }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.dataset.label + ': AED ' + context.raw;
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#b0b0b0' }
+            },
+            y: {
+                ticks: {
+                    color: '#b0b0b0',
+                    callback: function(value) {
+                        return 'AED ' + value;
+                    }
+                }
+            }
+        }
+    }
+});
+
+// STAFF CHART
+new Chart(document.getElementById('staffChart'), {
+    type: 'line',
+    data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [
+            {
+                label: 'David',
+                data: [2500, 2400, 2650, 1800],
+                borderColor: '#3b82f6',
+                tension: 0.5
+            },
+            {
+                label: 'Yan',
+                data: [1800, 2000, 1950, 2450],
+                borderColor: '#22c55e',
+                tension: 0.5
+            },
+            {
+                label: 'Myat',
+                data: [2200, 1700, 1830, 2000],
+                borderColor: '#b0b0b0',
+                tension: 0.5
+            },
+            {
+                label: 'Hein',
+                data: [1500, 1900, 2450, 2250],
+                borderColor: '#f59e0b',
+                tension: 0.5
+            },
+        ]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: { color: '#ffffff' }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.dataset.label + ': AED ' + context.raw;
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: '#b0b0b0' }
+            },
+            y: {
+                ticks: {
+                    color: '#b0b0b0',
+                    callback: function(value) {
+                        return 'AED ' + value;
+                    }
+                }
+            }
+        }
+    }
+});
 </script>
 
 </body>
