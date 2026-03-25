@@ -185,29 +185,38 @@ h1{
 .floating-sidebar {
   position: fixed;
   top: 50%;
-  right: 50px; /* floats away from left */
+  right: 20px;              /* 👈 use RIGHT instead of LEFT */
+  left: auto;               /* 👈 important: cancel left */
   transform: translateY(-50%);
+  
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
+
+  width: 50px;              /* 👈 fixed width prevents stretching */
+  padding: 12px 6px;
+
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 25px;
-  padding: 15px;
+  border-radius: 12px;
+
   z-index: 1000;
 }
 
 .floating-sidebar a {
-  font-size: 1.5rem; /* icon size */
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text);
+
   text-decoration: none;
-  width: 50px;
-  height: 100px;
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  color: var(--text);
+  border-radius: 8px;
+
+  transition: 0.3s ease;
 }
 
 .floating-sidebar a:hover {
@@ -357,6 +366,16 @@ html {
 
     .company-name{
         font-size: 0.8rem;
+    }
+
+    .floating-sidebar{
+        right: 10px;
+        width: 42px;
+        padding: 10px 4px;
+    }
+    .stimg{
+        max-width: 100%;
+        margin: 20px 0;
     }
 }
 
