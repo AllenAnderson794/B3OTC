@@ -77,8 +77,8 @@ body{
 
 /* ===== CONTAINER ===== */
 .container{
-    width: 90%;
-    max-width: 1100px;
+    width: 100%;
+    max-width: 80%;
     margin: auto;
     padding: 120px 0;
 }
@@ -93,7 +93,7 @@ h1{
 .subtitle{
     color: var(--sub);
     margin-bottom:90px;
-    max-width:620px;
+    max-width: auto;
     line-height:2;
 }
 
@@ -184,17 +184,19 @@ h1{
 
 .floating-sidebar {
   position: fixed;
-  top: 50%;
-  right: 15px;              /* 👈 use RIGHT instead of LEFT */
+  top: 55px;
+  right: 40px;              /* 👈 use RIGHT instead of LEFT */
   left: auto;               /* 👈 important: cancel left */
   transform: translateY(-50%);
+
+  justify-content: center;
   
   display: flex;
-  flex-direction: column;
-  gap: 70px;
+  flex-direction: row;
+  gap: 80px;
 
-  width: 50px;              /* 👈 fixed width prevents stretching */
-  padding: 12px 6px;
+  width: auto;              /* 👈 fixed width prevents stretching */
+  padding: 12px 24px;
 
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
@@ -204,7 +206,7 @@ h1{
 }
 
 .floating-sidebar a {
-  width: 36px;
+  width: 100px;
   height: 36px;
   font-size: 1.2rem;
 
@@ -220,7 +222,7 @@ h1{
 }
 
 .floating-sidebar a:hover {
-    border: solid 1px wheat;;
+    border: solid 1px wheat;
     color: #111827;
     transform: scale(1.4);
 }
@@ -297,6 +299,12 @@ html {
     background-color: var(--line);
     margin-top: 40px;
     margin-bottom: 40px;
+    transition: 0.5s ease;
+}
+
+.stimg:hover {
+    transform: scale(1.3);
+    background-color: darkslategray;
 }
 
 @media (max-width: 768px){
@@ -369,8 +377,8 @@ html {
     }
 
     .floating-sidebar{
-        right: 10px;
-        width: 42px;
+        right: 55px;
+        width: 40px;
         padding: 10px 4px;
     }
     .stimg{
