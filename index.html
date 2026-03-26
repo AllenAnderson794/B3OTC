@@ -26,7 +26,7 @@
 body{
     font-family:Inter,sans-serif;
     color:var(--text);
-    background: linear-gradient(160deg, #0b0f1a, #111827);
+    background: radial-gradient(circle, hsla(120, 29%, 18%, 1) 0%, hsla(228, 75%, 16%, 1) 100%);
     min-height:100vh;
 }
 
@@ -123,8 +123,8 @@ h1{
     color: white;
     font-size:1rem;
     line-height:3;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 /* ===== PROGRESS ===== */
@@ -233,7 +233,7 @@ html {
 .team{
     display: flex;
     justify-content: center;
-    gap: 15rem;
+    gap: 5rem;
     margin-top: 70px;
     margin-bottom: 70px;
     flex-wrap: wrap; /* responsive */
@@ -249,16 +249,18 @@ html {
     border-radius: 50%; /* circle */
     object-fit: cover;
     border: 2px solid rgba(255,255,255,0.15);
-    transition: 0.3s ease;
+    transition: 0.5s ease;
 }
 
 .member img:hover{
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
 .name{
     margin-top: 20px;
-    font-size: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
     color: wheat;
 }
 
@@ -378,7 +380,6 @@ html {
 </head>
 
 <body>
-<img class="cover" src="pexels-cadomaestro-1170412.jpg" alt="">
 <!-- FLOATING ICON SIDEBAR -->
 <div class="floating-sidebar">
     <br>
@@ -432,23 +433,42 @@ html {
                 <br>
                 <p>Below are the some of our team members profiles...</p>
             </div>
-            
+
+            <!-- Profiles -->
             <a>B3GO Team Profiles</a>
             <br>
             <div class="team">
                 <div class="member">
-                    <img src="person1.jpg">
-                    <div class="name">John</div>
+                    <div class="section">
+                        <img src="profile.jpg">
+                        <div class="name">Hein</div>
+                        <p class="section-text">
+                            “Working at B3GO has allowed me to grow in both skill and discipline.
+                            The structured system makes it easier to focus on performance and achieve consistent results.
+                            The company maintains a professional and supportive environment that encourages continuous improvement and long-term growth.”
+                        </p>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="section">
+                        <img src="profile.jpg">
+                        <div class="name">Yan</div>
+                        <p class="section-text">
+                            “The environment at B3GO is organized and goal-oriented, which helps maintain efficiency in daily operations.
+                            Team collaboration and clear processes make the workflow smooth and reliable.”
+                        </p>
+                    </div>
                 </div>
 
                 <div class="member">
-                    <img src="person2.jpg">
-                    <div class="name">Alex</div>
-                </div>
-
-                <div class="member">
-                    <img src="person3.jpg">
-                    <div class="name">David</div>
+                    <div class="section">
+                        <img src="profile.jpg">
+                        <div class="name">Myat</div>
+                        <p class="section-text">
+                            “At B3GO, I’ve experienced steady progress through a well-managed system.
+                            The balance between teamwork and individual performance creates a strong and productive working environment.”
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -457,41 +477,41 @@ html {
 
 <!-- PROGRESS -->
 <div class="section" id="progress">
-<div class="section-title">Growth & Progress</div>
+    <div class="section-title">Growth & Progress</div>
 
-<br>
+    <br>
 
-<div class="progress">
+    <div class="progress">
 
-<div class="bar">
-<span>System Stability</span>
-<div class="progress-line">
-<div class="fill" data-width="90%"></div>
-</div>
-</div>
-<br>
-<div class="bar">
-<span>Processing Efficiency</span>
-<div class="progress-line">
-<div class="fill" data-width="85%"></div>
-</div>
-</div>
-<br>
-<div class="bar">
-<span>Company Relations</span>
-<div class="progress-line">
-<div class="fill" data-width="60%"></div>
-</div>
-</div>
-<br>
-<div class="bar">
-<span>Customer Satisfaction</span>
-<div class="progress-line">
-<div class="fill" data-width="95%"></div>
-</div>
-</div>
+        <div class="bar">
+            <span>System Stability</span>
+            <div class="progress-line">
+                <div class="fill" data-width="90%"></div>
+            </div>
+        </div>
+        <br>
+        <div class="bar">
+            <span>Processing Efficiency</span>
+            <div class="progress-line">
+                <div class="fill" data-width="85%"></div>
+            </div>
+        </div>
+        <br>
+        <div class="bar">
+            <span>Company Relations</span>
+            <div class="progress-line">
+                <div class="fill" data-width="60%"></div>
+            </div>
+        </div>
+        <br>
+        <div class="bar">
+            <span>Customer Satisfaction</span>
+            <div class="progress-line">
+                <div class="fill" data-width="95%"></div>
+            </div>
+        </div>
 
-</div>
+    </div>
 </div>
 
 <!-- TRUST -->
@@ -502,19 +522,19 @@ html {
     <div class="column">
       ✔ Secure and consistent operations<br>
       ✔ Verified internal processes<br>
-      ✔ Real-time respone with an accurate informations
+      ✔ Real-time respone with an accuracy
     </div>
     <div class="column">
       ✔ Continuous performance monitoring<br>
       ✔ Growing and stable user base<br>
-      ✔ Formal Regulations Between Company Staffs and Positions
+      ✔ Formal Regulations Within Company
     </div>
   </div>
 </div>
 
 <!-- PERFORMANCE CHART -->
 <div class="section" id="charts">
-  <div class="section-title">Performance Overview</div>
+  <div class="section-title">Business Performance Overview</div>
 
   <div class="chart-wrapper">
     
@@ -535,15 +555,15 @@ html {
 
 <!-- STATUS -->
 <div class="section" id="status">
-<div class="section-title">Office Regulation Status</div>
-<br>
-<div class="status">
-🟢 Open Hour: 09 : 00 AM To 09 : 00 PM<br>
-📅 Open Day: Monday To Friday<br>
-🟡 Close Hour: 12 : 30 PM To 01 : 30 PM Every Friday<br>
-🕒 Close Day: Saturaday , Sunday and Public Holidays<br>
-📌 Office Based: Sharjah, United Arab Emirates
-</div>
+    <div class="section-title">Office Regulation Status</div>
+    <br>
+    <div class="status">
+        🟢 Open Hour: 09 : 00 AM To 09 : 00 PM<br>
+        📅 Open Day: Monday To Friday<br>
+        🟡 Close Hour: 12 : 30 PM To 01 : 30 PM Every Friday<br>
+        🕒 Close Day: Saturaday , Sunday and Public Holidays<br>
+        📌 Office Based: Sharjah, United Arab Emirates
+    </div>
 </div>
 
 
@@ -566,39 +586,40 @@ html {
 <script>
 
     document.querySelectorAll('.floating-sidebar a').forEach(link => {
-    link.addEventListener('click', function(e){
-    e.preventDefault();
-    
-    const targetId = this.getAttribute('href').substring(1);
-    
-    if(targetId === "") {
-      // Scroll to top if href="#"
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      return;
-    }
-    
-    const target = document.getElementById(targetId);
-    if(target){
-      const elementRect = target.getBoundingClientRect();
-      const absoluteElementTop = elementRect.top + window.pageYOffset;
-      const offset = (window.innerHeight / 2) - (elementRect.height / 2);
+        link.addEventListener('click', function(e){
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            
+            if(targetId === "") {
+                // Scroll to top if href="#"
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                return;
+            }
+            
+            const target = document.getElementById(targetId);
+            if(target){
+                const elementRect = target.getBoundingClientRect();
+                const absoluteElementTop = elementRect.top + window.pageYOffset;
+                const offset = (window.innerHeight / 2) - (elementRect.height / 2);
 
-      window.scrollTo({
-        top: absoluteElementTop - offset,
-        behavior: 'smooth'
-      });
-    }
-    });
+                window.scrollTo({
+                    top: absoluteElementTop - offset,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 
-window.onload = () => {
-    document.querySelectorAll('.fill').forEach(bar => {
-        bar.style.width = bar.getAttribute('data-width');
-    });
-};
+    window.onload = () => {
+
+        document.querySelectorAll('.fill').forEach(bar => {
+            bar.style.width = bar.getAttribute('data-width');
+        });
+    };
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -611,15 +632,15 @@ new Chart(document.getElementById('investorChart'), {
         labels: ['Jan', 'Feb', 'Mar', 'Aprl'],
         datasets: [
             {
-                label: 'Profit (AED)',
-                data: [2000, 2700, 1500, 3000, 2500, 3300], // increased values
+                label: 'PROFIT',
+                data: [2000, 2500, 1000, 3000, 2500, 3300], // increased values
                 borderColor: '#3b82f6',
                 backgroundColor: 'rgba(59,130,246,0.2)',
                 tension: 0.4,
                 fill: true
             },
             {
-                label: 'Loss (AED)',
+                label: 'LOSS',
                 data: [400, 350, 500, 420, 380, 300], // increased values
                 borderColor: '#ef4444',
                 backgroundColor: 'rgba(239,68,68,0.2)',
@@ -661,7 +682,7 @@ new Chart(document.getElementById('investorChart'), {
 new Chart(document.getElementById('staffChart'), {
     type: 'line',
     data: {
-        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        labels: ['Jan', 'Feb', 'March', 'April'],
         datasets: [
             {
                 label: 'David',
@@ -671,7 +692,7 @@ new Chart(document.getElementById('staffChart'), {
             },
             {
                 label: 'Yan',
-                data: [1800, 2000, 1950, 2450],
+                data: [1800, 2150, 1950, 2450],
                 borderColor: '#22c55e',
                 tension: 0.5
             },
@@ -685,6 +706,18 @@ new Chart(document.getElementById('staffChart'), {
                 label: 'Hein',
                 data: [1500, 1900, 2450, 2250],
                 borderColor: '#f59e0b',
+                tension: 0.5
+            },
+            {
+                label: 'Allen',
+                data: [2000, 1500, 1720, 1550],
+                borderColor: '#5FC2C9',
+                tension: 0.5
+            },
+            {
+                label: 'Aana',
+                data: [2350, 2000, 2200, 2600],
+                borderColor: '#7844C7',
                 tension: 0.5
             },
         ]
