@@ -3,812 +3,753 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B3OTC</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
+<title>B3OTC — Digital Asset Exchange</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-    --line: rgba(255,255,255,0.08);
-    --text: #ffffff;
-    --sub: #b0b0b0;
-    --accent: #3b82f6;
-    --glass: rgba(255,255,255,0.10);
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #0b0f18;
+  color: #e8ecf4;
+  line-height: 1.7;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-/* ===== DARK CLEAN BACKGROUND ===== */
-body{
-    font-family:Inter,sans-serif;
-    color:var(--text);
-    background: radial-gradient(circle, hsla(120, 29%, 18%, 1) 0%, hsla(228, 75%, 16%, 1) 100%);
-    min-height:100vh;
-}
-
-.cover {
-    position: fixed;
-    filter: blur(30px);
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;   /* keeps it nicely scaled */
-    z-index: -1;         /* pushes it behind everything */
-    opacity: 0.25;       /* optional: makes it subtle */
-}
-
-/* ===== LOGO + COMPANY NAME ===== */
-.logo-header{
-    position: fixed;
-    top: 30px;
-    left: 50px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 999;
-    transition: 0.5s ease;
-}
-
-.logo-header:hover{
-    transform: scale(1.1);
-}
-
-.logo-img{
-    width:50px;
-    height:50px;
-    border-radius:12px;
-    object-fit: cover;
-    border:1px solid var(--line);
-    background: rgba(255,255,255,0.05);
-}
-
-.company-name{
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    letter-spacing: 5px;
-    white-space: nowrap;
-}
-
-/* ===== CONTAINER ===== */
-.container{
-    width: 100%;
-    max-width: 80%;
-    margin: auto;
-    padding: 120px 0;
-}
-
-/* ===== HERO ===== */
-h1{
-    font-size:3.2rem;
-    letter-spacing:3px;
-    margin-bottom:20px;
-}
-
-.subtitle{
-    color: var(--sub);
-    margin-bottom:90px;
-    max-width: auto;
-    line-height:2;
-}
-
-/* ===== SECTION ===== */
-.section{
-    background: var(--glass);
-    justify-content: center;
-    border:1px solid var(--line);
-    padding:50px 40px;
-    margin-bottom:40px;
-    border-radius:18px;
-    transition: 0.3s ease;
-}
-
-/* ===== TITLES ===== */
-.section-title{
-    font-family:"Cormorant Garamond",serif;
-    font-weight:bolder;
-    font-size:2rem;
-    margin-top: 20px;
-    margin-bottom:20px;
-}
-
-.section-text{
-    font-family: Cambria;
-    max-height: none;
-    padding: 10px;
-    color: white;
-    font-size:1rem;
-    line-height:3;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-/* ===== PROGRESS ===== */
-.progress{
-    margin-top:25px;
-}
-
-.bar{
-    margin-bottom:18px;
-}
-
-.bar span{
-    font-size:1rem;
-    color:white;
-}
-
-.progress-line{
-    height:8px;
-    background: rgba(255,255,255,0.08);
-    border-radius:10px;
-    overflow:hidden;
-    margin-top:6px;
-}
-
-.fill{
-    height:100%;
-    background: var(--accent);
-    width:0;
-    transition:1s;
-}
-
-/* ===== STATUS ===== */
-.status{
-    font-size:0.8rem;
-    color: wheat;
-    line-height:3;
-}
-
-.trust-columns {
-  display: flex;
-  gap: 40px; /* space between columns */
-  flex-wrap: wrap; /* ensures responsiveness on small screens */
-}
-
-.trust-columns .column {
-  flex: 1; /* equal width columns */
-  min-width: 200px; /* prevents columns from getting too narrow */
-  color: wheat;
-  line-height: 3;
-}
-
-.floating-sidebar {
+/* NAV */
+nav {
   position: fixed;
-  top: 55px;
-  right: 5%;              /* 👈 use RIGHT instead of LEFT */
-  left: auto;               /* 👈 important: cancel left */
-  transform: translateY(-50%);
-  
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 64px;
   display: flex;
-  flex-direction: row;
-  gap: 55px;
-
-  width: auto;              /* 👈 fixed width prevents stretching */
-  padding: 12px 24px;
-
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-
-  z-index: 1000;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(11,15,24,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1e2535;
 }
 
-.floating-sidebar a {
-  width: 100px;
-  height: 36px;
-  font-size: 1.5rem;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
 
+.nav-logo img {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nav-logo span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #e8ecf4;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: #8a95b0;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover {
+  color: #e8ecf4;
+  background: #1e2535;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  width: 22px; height: 2px;
+  background: #e8ecf4;
+  border-radius: 2px;
+  display: block;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: #0b0f18;
+  border-bottom: 1px solid #1e2535;
+  z-index: 99;
+  padding: 12px 20px 20px;
+  flex-direction: column;
+  gap: 2px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  padding: 11px 14px;
+  font-size: 0.9rem;
+  color: #8a95b0;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.mobile-nav a:hover { color: #e8ecf4; background: #1e2535; }
+
+/* LAYOUT */
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HERO */
+.hero {
+  padding: 140px 0 80px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: #8a95b0;
+  max-width: 540px;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stat {
+  padding: 14px 22px;
+  background: #141925;
+  border: 1px solid #1e2535;
+  border-radius: 10px;
+}
+
+.stat-num {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: #8a95b0;
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 0;
+  border-top: 1px solid #1e2535;
+}
+
+.section-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #4a7cf7;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+.body-text {
+  color: #b0bdd4;
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+.body-text p {
+  margin-bottom: 14px;
+  text-align: justify;
+ }
+
+.clean-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.clean-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #141925;
+  border: 1px solid #1e2535;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #c8d4e8;
+}
+.clean-list-item::before {
+  content: '';
+  width: 5px; height: 5px;
+  background: #4a7cf7;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.callout {
+  margin-top: 24px;
+  padding: 18px 20px;
+  background: #141925;
+  border-left: 3px solid #4a7cf7;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.92rem;
+  color: #c8d4e8;
+  font-style: italic;
+}
+
+/* B3GO */
+.b3go-label {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* TEAM */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.member {
+  background: #141925;
+  border: 1px solid #1e2535;
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.member img {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1e2535;
+  margin-bottom: 12px;
+}
+
+.member-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.member-quote {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #8a95b0;
+}
+
+/* PROGRESS */
+.progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.prog-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: #c8d4e8;
+  margin-bottom: 8px;
+}
+.prog-pct { color: #4a7cf7; font-weight: 600; }
+
+.prog-track {
+  height: 5px;
+  background: #1e2535;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.prog-fill {
+  height: 100%;
+  background: #4a7cf7;
+  border-radius: 10px;
+  width: 0;
+  transition: width 1.1s ease;
+}
+
+/* TRUST */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #141925;
+  border: 1px solid #1e2535;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #c8d4e8;
+}
+.trust-check {
+  font-size: 0.7rem;
+  color: #22c55e;
+  background: rgba(34,197,94,0.1);
+  border-radius: 50%;
+  width: 22px; height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
 
-  text-decoration: none;
-  color: var(--text);
+/* CHARTS */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.chart-box {
+  background: #141925;
+  border: 1px solid #1e2535;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.chart-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8a95b0;
+  margin-bottom: 18px;
+}
+
+/* STATUS */
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #141925;
+  border: 1px solid #1e2535;
   border-radius: 8px;
-
-  transition: 0.3s ease;
+  font-size: 0.88rem;
 }
 
-.floating-sidebar a:hover {
-    border: solid 1px wheat;
-    color: #111827;
-    transform: scale(1.4);
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot.green  { background: #22c55e; }
+.dot.yellow { background: #f59e0b; }
+.dot.red    { background: #ef4444; }
+.dot.blue   { background: #4a7cf7; }
+.dot.gray   { background: #8a95b0; }
+
+.status-row .key {
+  color: #8a95b0;
+  min-width: 110px;
+  font-size: 0.82rem;
+}
+.status-row .val { color: #e8ecf4; }
+
+/* CONTACT */
+.contact-box {
+  background: #141925;
+  border: 1px solid #1e2535;
+  border-radius: 12px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.floating-sidebar a:active {
-    border: solid 1px #3b82f6;
-    background-color: wheat;
-    color: white;
-    transform: scale(0.6);
+.contact-box h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
-html {
-  scroll-behavior: smooth;
+.contact-box p {
+  font-size: 0.88rem;
+  color: #8a95b0;
 }
 
-.team{
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    flex-wrap: wrap; /* responsive */
+.tg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #4a7cf7;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.4s ease;
+  white-space: nowrap;
 }
 
-.member{
-    text-align: center;
+.tg-btn:hover { background: #3a6de0; transform: translateY(-1px); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #1e2535;
+  padding: 28px 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #8a95b0;
 }
 
-.member img{
-    width: 100px;        /* small size */
-    height: 100px;
-    border-radius: 50%; /* circle */
-    object-fit: cover;
-    border: 2px solid rgba(255,255,255,0.15);
-    transition: 0.5s ease;
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero { padding: 110px 0 60px; }
+  section { padding: 50px 0; }
+
+  .status-row { flex-wrap: wrap; gap: 8px; }
+  .status-row .key { min-width: auto; }
+
+  .contact-box { padding: 24px 20px; }
 }
-
-.member img:hover{
-    transform: scale(1.3);
-    border: solid 5px wheat;
-}
-
-.name{
-    margin-top: 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 20px;
-    color: wheat;
-}
-
-.b3go{
-    margin-top: 40px;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    text-align: center;
-}
-
-.b3go a{
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.b3go p{
-    text-align: justify;
-}
-
-.chart-wrapper{
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.chart-box{
-    width: 100%;
-    max-width: 450px;
-}
-
-.chart-title{
-    text-align: center;
-    margin-bottom: 15px;
-    color: var(--sub);
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px){
-
-    /* Make text fit better */
-    h1{
-        font-size: 2rem;
-        letter-spacing: 1px;
-    }
-
-    .subtitle{
-        font-size: 0.9rem;
-        margin-bottom: 50px;
-    }
-
-    /* Sections padding smaller */
-    .section{
-        padding: 30px 20px;
-    }
-
-    /* About text readable */
-    .section-text{
-        font-size: 0.5rem;
-        line-height: 1.5;
-        text-align: justify;
-        max-height: none; /* IMPORTANT: remove cut-off */
-    }
-
-    /* Remove big text indent on phone */
-    .section-text p{
-        font-size: 0.5rem;
-        line-height: 1.5;
-        text-indent: 0;
-        text-align: justify;
-        max-height: none;
-    }
-
-    /* Stack trust columns */
-    .trust-columns{
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    /* Center team images */
-    .team{
-        justify-content: center;
-    }
-
-    /* Logo smaller */
-    .logo-header{
-        top: 20px;
-        left: 20px;
-    }
-
-    .logo-img{
-        width: 40px;
-        height: 40px;
-    }
-
-    .company-name{
-        font-size: 0.8rem;
-    }
-
-    .floating-sidebar{
-        top: 65px;
-        right: 50%;
-        transform: translateX(50%); /* center it */
-
-        flex-direction: row;
-        gap: 10px; /* reduce gap */
-
-        padding: 8px 10px;
-    }
-
-    .floating-sidebar a{
-        width: 40px;   /* smaller buttons */
-        height: 30px;
-        font-size: 1rem;
-    }
-}
-
 </style>
 </head>
-
 <body>
-<!-- FLOATING ICON SIDEBAR -->
-<div class="floating-sidebar">
-    <br>
-  <a href="#" title="Top">📘</a>
-  <a href="#progress" title="Progress">📊</a>
-  <a href="#trust" title="Trust">✅</a>
-  <a href="#charts" title="Chart">📈</a>
-  <a href="#status" title="Status">🕒</a>
-  <a href="#contact" title="Contact">☎︎</a>
-    <br>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="b3otclogo.jpg" alt="B3OTC">
+    <span>B3OTC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#b3go">B3GO</a></li>
+    <li><a href="#progress">Progress</a></li>
+    <li><a href="#trust">Trust</a></li>
+    <li><a href="#charts">Performance</a></li>
+    <li><a href="#status">Status</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about"    onclick="closeMenu()">About</a>
+  <a href="#b3go"     onclick="closeMenu()">B3GO</a>
+  <a href="#progress" onclick="closeMenu()">Progress</a>
+  <a href="#trust"    onclick="closeMenu()">Trust</a>
+  <a href="#charts"   onclick="closeMenu()">Performance</a>
+  <a href="#status"   onclick="closeMenu()">Status</a>
+  <a href="#contact"  onclick="closeMenu()">Contact</a>
 </div>
 
-<!-- LOGO + COMPANY NAME -->
-<div class="logo-header">
-    <img src="photo_2026-02-05_02-01-12.jpg" alt="Logo" class="logo-img">
-    <div class="company-name">B3OTC | since 2021</div>
-</div>
-
-<div class="container">
-
-<h1>B 3 O T C</h1>
-<div class="subtitle">
-    A Strong and Reliable Infrastructure Delievering Warm and Efficiant Service with a Trustworthy Digital Assets 
-<br>
+<!-- HERO -->
+<div class="page">
+  <div class="hero">
+    <h1>B 3 O T C</h1>
+    <p>A Strong and Reliable Infrastructure Delivering Warm and Efficient Service with Trustworthy Digital Assets</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">AED 10M+</div>
+        <div class="stat-label">Monthly Turnover</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Since 2021</div>
+        <div class="stat-label">UAE Based</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">AED ⇄ USDT</div>
+        <div class="stat-label">P2P Exchange</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ABOUT -->
-<div class="section" id="about">
-    <div class="section-title">About Us</div>
-    <br>
-    <div class="section-text">
-        <p style="text-indent: 100px;">
-            B3OTC is a UAE-based peer-to-peer digital asset exchange specializing in high-volume AED ⇄ USDT transactions.
-            Established in 2021, we have built a strong presence in the market by delivering reliable, fast, and flexible liquidity solutions.
-            With a monthly turnover exceeding $100 million USDT,
-            B3OTC operates as a trusted bridge between traditional finance and digital assets,
-            serving individuals, traders, and businesses that require efficient execution at scale.
-        </p>
-        <br>
-        <p>
-            We provide seamless conversion between AED and USDT through multiple settlement methods, including:
-            <p style="text-indent: 50px;">
-                •	Bank transfers
-            </p>
-            <p style="text-indent: 50px;">
-                •	Cash transactions
-            </p>
-            <p style="text-indent: 50px;">
-	            •	Manager cheque settlements
-            </p>
-        </p>
-        <br>
-        <p>
-            Our infrastructure is designed for real-world execution 
-            — enabling clients to move between fiat and digital assets with speed, discretion, and operational clarity.
-        </p>
-        <br>
-        <p>
-            B3OTC actively operates across leading digital asset platforms and ecosystems, including:
-            <p style="text-indent: 50px;">
-                •	Binance (Official Partner since 2021)
-            </p>
-            <p style="text-indent: 50px;">
-                •	Bybit
-            </p>
-            <p style="text-indent: 50px;">
-                •	RedotPay
-            </p>
-            <p style="text-indent: 50px;">
-                •	Other major global exchanges
-            </p>
-        </p>
-        <p>
-            This multi-platform presence allows us to access deep liquidity and deliver consistent pricing and execution for our clients.
-        </p>
-        <br>
-        <p>
-            At B3OTC, we focus on:
-            <p style="text-indent: 50px;">
-                •	High-volume transaction capability
-            </p>
-            <p style="text-indent: 50px;">
-                •	Flexible settlement solutions
-            </p>
-            <p style="text-indent: 50px;">
-                •	Secure and structured workflows
-            </p>
-            <p style="text-indent: 50px;">
-                •	Strong operational discipline
-            </p>
-        </p>
-        <br>
-        <p style="text-align: center; font-weight: bold;">
-            We are built for serious volume — not retail limitations.
-            B3OTC is more than an exchange; it is a liquidity partner supporting the growth of the digital asset economy in the region.
-        </p>
-        <br>
+<section id="about">
+  <div class="page">
+    <div class="section-tag">About Us</div>
+    <div class="section-title">UAE-Based Peer-to-Peer Digital Asset Exchange</div>
+    <div class="body-text">
+      <p>B3OTC is a UAE-based peer-to-peer digital asset exchange specializing in high-volume AED ⇄ USDT transactions. Established in 2021, we have built a strong presence in the market by delivering reliable, fast, and flexible liquidity solutions. With a monthly turnover exceeding $100 million USDT, B3OTC operates as a trusted bridge between traditional finance and digital assets, serving individuals, traders, and businesses that require efficient execution at scale.</p>
+      <p>We provide seamless conversion between AED and USDT through multiple settlement methods:</p>
     </div>
-    <div class="section" id="b3go">
-        <div class="b3go">
-            <a>B 3 G O</a>
-            <br>
-            <div class="section-text">
-                <p style="text-indent: 100px;">
-                    B3GO is an operating team under the B3OTC brand. 
-                    The team is responsible for daily coordination, internal process management, and performance reporting.
-                    Our structure includes team leadership, staff members, and accounting support to maintain organized operations and responsible fund management.
-                </p>
-                <br>
-                <p>Below are the some of our team members profiles...</p>
-            </div>
-
-            <!-- Profiles -->
-            <a>B3GO Team Profiles</a>
-            <br>
-            <div class="team">
-                <div class="member">
-                    <div class="section">
-                        <img src="profile.jpg">
-                        <div class="name">Allen</div>
-                        <p class="section-text">
-                            “Working at B3GO has allowed me to grow in both skill and discipline.
-                            The structured system makes it easier to focus on performance and achieve consistent results.
-                            The company maintains a professional and supportive environment that encourages continuous improvement and long-term growth.”
-                        </p>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="section">
-                        <img src="profile.jpg">
-                        <div class="name">Yan</div>
-                        <p class="section-text">
-                            “The environment at B3GO is organized and goal-oriented, which helps maintain efficiency in daily operations.
-                            Team collaboration and clear processes make the workflow smooth and reliable.”
-                        </p>
-                    </div>
-                </div>
-
-                <div class="member">
-                    <div class="section">
-                        <img src="profile.jpg">
-                        <div class="name">Myat</div>
-                        <p class="section-text">
-                            “At B3GO, I’ve experienced steady progress through a well-managed system.
-                            The balance between teamwork and individual performance creates a strong and productive working environment.”
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="clean-list">
+      <div class="clean-list-item">Bank Transfers</div>
+      <div class="clean-list-item">Cash Transactions</div>
+      <div class="clean-list-item">Manager Cheque Settlements</div>
     </div>
-</div>
+    <div class="body-text">
+      <p>Our infrastructure is designed for real-world execution — enabling clients to move between fiat and digital assets with speed, discretion, and operational clarity.</p>
+      <p>B3OTC actively operates across leading digital asset platforms and ecosystems, including:</p>
+    </div>
+    <div class="clean-list">
+      <div class="clean-list-item">Binance (Official Partner since 2021)</div>
+      <div class="clean-list-item">Bybit</div>
+      <div class="clean-list-item">Other major global exchanges</div>
+    </div>
+    <div class="body-text" style="margin-top: 16px;">
+      <p>This multi-platform presence allows us to access deep liquidity and deliver consistent pricing and execution for our clients.</p>
+      <p>At B3OTC, we focus on:</p>
+    </div>
+    <div class="clean-list">
+      <div class="clean-list-item">High-volume transaction capability</div>
+      <div class="clean-list-item">Flexible settlement solutions</div>
+      <div class="clean-list-item">Secure and structured workflows</div>
+      <div class="clean-list-item">Strong operational discipline</div>
+    </div>
+    <div class="callout">
+      We are built for serious volume — not retail limitations. B3OTC is more than an exchange; it is a liquidity partner supporting the growth of the digital asset economy in the region.
+    </div>
+  </div>
+</section>
+
+<!-- B3GO -->
+<section id="b3go">
+  <div class="page">
+    <div class="section-tag">Operating Team</div>
+    <div class="b3go-label">B 3 G O</div>
+    <div class="body-text">
+      <p>B3GO is an operating team under the B3OTC brand. The team is responsible for daily coordination, internal process management, and performance reporting. It serves as the operational backbone of B3OTC, ensuring that all services are executed with precision and accountability.</p>
+      <p>Our structure includes team leadership, staff members, and accounting support to maintain organized operations and responsible fund management.</p>
+      <p style="color: #8a95b0; font-size: 0.88rem;">Below are some of our team members' profiles.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member">
+        <img src="profile.jpg" alt="Allen">
+        <div class="member-name">Allen</div>
+        <div class="member-quote">"Working at B3GO allowed me to grow in both skill and discipline. The structured system makes it easier to focus on performance and achieve consistent results. The company maintains a professional and supportive environment that encourages continuous improvement and long-term growth."</div>
+      </div>
+      <div class="member">
+        <img src="profile.jpg" alt="Yan">
+        <div class="member-name">Yan</div>
+        <div class="member-quote">"The environment at B3GO is organized and goal-oriented, which helps maintain efficiency in daily operations. Team collaboration and clear processes make the workflow smooth and reliable."</div>
+      </div>
+      <div class="member">
+        <img src="profile.jpg" alt="Myat">
+        <div class="member-name">Myat</div>
+        <div class="member-quote">"At B3GO, I've experienced steady progress through a well-managed system. The balance between teamwork and individual performance creates a strong and productive working environment."</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- PROGRESS -->
-<div class="section" id="progress">
-    <div class="section-title">Growth & Progress</div>
-
-    <br>
-
-    <div class="progress">
-
-        <div class="bar">
-            <span>System Stability</span>
-            <div class="progress-line">
-                <div class="fill" data-width="90%"></div>
-            </div>
-        </div>
-        <br>
-        <div class="bar">
-            <span>Processing Efficiency</span>
-            <div class="progress-line">
-                <div class="fill" data-width="85%"></div>
-            </div>
-        </div>
-        <br>
-        <div class="bar">
-            <span>Company Relations</span>
-            <div class="progress-line">
-                <div class="fill" data-width="60%"></div>
-            </div>
-        </div>
-        <br>
-        <div class="bar">
-            <span>Customer Satisfaction</span>
-            <div class="progress-line">
-                <div class="fill" data-width="95%"></div>
-            </div>
-        </div>
+<section id="progress">
+  <div class="page">
+    <div class="section-tag">Growth & Progress</div>
+    <div class="section-title">Operational Performance</div>
+    <div class="progress-list">
+      <div class="prog-row">
+        <div class="prog-top"><span>System Stability</span><span class="prog-pct">90%</span></div>
+        <div class="prog-track"><div class="prog-fill" data-w="90%"></div></div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-top"><span>Processing Efficiency</span><span class="prog-pct">85%</span></div>
+        <div class="prog-track"><div class="prog-fill" data-w="85%"></div></div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-top"><span>Company Relations</span><span class="prog-pct">60%</span></div>
+        <div class="prog-track"><div class="prog-fill" data-w="60%"></div></div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-top"><span>Customer Satisfaction</span><span class="prog-pct">95%</span></div>
+        <div class="prog-track"><div class="prog-fill" data-w="95%"></div></div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
 <!-- TRUST -->
-<div class="section" id="trust">
-  <div class="section-title">Trust & Reliability</div>
-  <br>
-  <div class="trust-columns">
-    <div class="column">
-      ✔ Secure and consistent operations<br>
-      ✔ Verified internal processes<br>
-      ✔ Real-time respone with an accuracy
-    </div>
-    <div class="column">
-      ✔ Continuous performance monitoring<br>
-      ✔ Growing and stable user base<br>
-      ✔ Formal Regulations Within Company
+<section id="trust">
+  <div class="page">
+    <div class="section-tag">Trust & Reliability</div>
+    <div class="section-title">Built on Integrity</div>
+    <div class="trust-grid">
+      <div class="trust-item"><div class="trust-check">✓</div>Secure and consistent operations</div>
+      <div class="trust-item"><div class="trust-check">✓</div>Verified internal processes</div>
+      <div class="trust-item"><div class="trust-check">✓</div>Real-time response with accuracy</div>
+      <div class="trust-item"><div class="trust-check">✓</div>Continuous performance monitoring</div>
+      <div class="trust-item"><div class="trust-check">✓</div>Growing and stable user base</div>
+      <div class="trust-item"><div class="trust-check">✓</div>Formal regulations within company</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- PERFORMANCE CHART -->
-<div class="section" id="charts">
-  <div class="section-title">Business Performance Overview</div>
-
-  <div class="chart-wrapper">
-    
-    <!-- Investor Chart -->
-    <div class="chart-box">
-      <div class="chart-title">Investors Growth</div>
-      <canvas id="investorChart"></canvas>
+<!-- CHARTS -->
+<section id="charts">
+  <div class="page">
+    <div class="section-tag">Business Performance</div>
+    <div class="section-title">Performance Overview</div>
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-label">Investors Growth</div>
+        <canvas id="investorChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-label">Staffs Growth</div>
+        <canvas id="staffChart"></canvas>
+      </div>
     </div>
-
-    <!-- Staff Chart -->
-    <div class="chart-box">
-      <div class="chart-title">Staffs Growth</div>
-      <canvas id="staffChart"></canvas>
-    </div>
-
   </div>
-</div>
+</section>
 
 <!-- STATUS -->
-<div class="section" id="status">
+<section id="status">
+  <div class="page">
+    <div class="section-tag">Operations</div>
     <div class="section-title">Office Regulation Status</div>
-    <br>
-    <div class="status">
-        🟢 Open Hour: 09 : 00 AM To 09 : 00 PM<br>
-        📅 Open Day: Monday To Friday<br>
-        🟡 Close Hour: 12 : 30 PM To 01 : 30 PM Every Friday<br>
-        🕒 Close Day: Saturaday , Sunday and Public Holidays<br>
-        📌 Office Based: Sharjah, United Arab Emirates
+    <div class="status-list">
+      <div class="status-row"><div class="dot green"></div><span class="key">Open Hours</span><span class="val">09:00 AM – 09:00 PM</span></div>
+      <div class="status-row"><div class="dot gray"></div><span class="key">Open Days</span><span class="val">Monday to Friday</span></div>
+      <div class="status-row"><div class="dot yellow"></div><span class="key">Friday Break</span><span class="val">12:30 PM – 01:30 PM Every Friday</span></div>
+      <div class="status-row"><div class="dot red"></div><span class="key">Closed</span><span class="val">Saturday, Sunday & Public Holidays</span></div>
+      <div class="status-row"><div class="dot blue"></div><span class="key">Location</span><span class="val">Sharjah, United Arab Emirates</span></div>
     </div>
-</div>
+  </div>
+</section>
 
-
-
-<div class="section" id="contact">
-    <div class="section-title">Contact Us</div>
-    <br>
-    <div class="trust-columns">
-        <div class="column">
-            Telegram: @B3OTC
-        </div>
-        <div class="column">
-        </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="page">
+    <div class="section-tag">Contact</div>
+    <div class="section-title">Get In Touch</div>
+    <div class="contact-box">
+      <div>
+        <h3>Reach Us on Telegram</h3>
+        <p>For inquiries, partnerships, and trading — connect with us directly.</p>
+      </div>
+      <a href="https://t.me/B3OTC" class="tg-btn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.284c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.937z"/></svg>
+        @B3OTC
+      </a>
     </div>
-</div>
+  </div>
+</section>
 
-<script>
-
-    document.querySelectorAll('.floating-sidebar a').forEach(link => {
-        link.addEventListener('click', function(e){
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            
-            if(targetId === "") {
-                // Scroll to top if href="#"
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                return;
-            }
-            
-            const target = document.getElementById(targetId);
-            if(target){
-                const elementRect = target.getBoundingClientRect();
-                const absoluteElementTop = elementRect.top + window.pageYOffset;
-                const offset = (window.innerHeight / 2) - (elementRect.height / 2);
-
-                window.scrollTo({
-                    top: absoluteElementTop - offset,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    window.onload = () => {
-
-        document.querySelectorAll('.fill').forEach(bar => {
-            bar.style.width = bar.getAttribute('data-width');
-        });
-    };
-</script>
+<footer>
+  <div class="page">
+    © 2021–2026 B3OTC · Sharjah, United Arab Emirates
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
-// INVESTOR CHART
-new Chart(document.getElementById('investorChart'), {
-    type: 'line',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Aprl'],
-        datasets: [
-            {
-                label: 'PROFIT',
-                data: [2000, 2500, 1000, 3000, 2500, 3300], // increased values
-                borderColor: '#3b82f6',
-                backgroundColor: 'rgba(59,130,246,0.2)',
-                tension: 0.4,
-                fill: true
-            },
-            {
-                label: 'LOSS',
-                data: [400, 350, 500, 420, 380, 300], // increased values
-                borderColor: '#ef4444',
-                backgroundColor: 'rgba(239,68,68,0.2)',
-                tension: 0.4,
-                fill: true
-            }
-        ]
-    },
-    options: {
-        plugins: {
-            legend: {
-                labels: { color: '#ffffff' }
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.dataset.label + ': AED ' + context.raw;
-                    }
-                }
-            }
-        },
-        scales: {
-            x: {
-                ticks: { color: '#b0b0b0' }
-            },
-            y: {
-                ticks: {
-                    color: '#b0b0b0',
-                    callback: function(value) {
-                        return 'AED ' + value;
-                    }
-                }
-            }
-        }
+function toggleMenu() { document.getElementById('mobileNav').classList.toggle('open'); }
+function closeMenu()  { document.getElementById('mobileNav').classList.remove('open'); }
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.prog-fill').forEach(b => b.style.width = b.dataset.w);
     }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('#progress').forEach(el => io.observe(el));
+
+Chart.defaults.color = '#8a95b0';
+Chart.defaults.borderColor = '#1e2535';
+Chart.defaults.font.family = "'Outfit', sans-serif";
+
+new Chart(document.getElementById('investorChart'), {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+    datasets: [
+      { label: 'PROFIT', data: [2000,2500,1000,3000], borderColor: '#4a7cf7', backgroundColor: 'rgba(74,124,247,0.08)', tension: 0.4, fill: true, pointBackgroundColor: '#4a7cf7', pointRadius: 4 },
+      { label: 'LOSS',   data: [400,350,500,420],     borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.08)',  tension: 0.4, fill: true, pointBackgroundColor: '#ef4444', pointRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#c8d4e8' } },
+      tooltip: { backgroundColor: '#0b0f18', borderColor: '#1e2535', borderWidth: 1, callbacks: { label: c => c.dataset.label + ': AED ' + c.raw } }
+    },
+    scales: {
+      x: { grid: { color: '#1a2030' } },
+      y: { grid: { color: '#1a2030' }, ticks: { callback: v => 'AED ' + v } }
+    }
+  }
 });
 
-// STAFF CHART
 new Chart(document.getElementById('staffChart'), {
-    type: 'line',
-    data: {
-        labels: ['Jan', 'Feb', 'March', 'April'],
-        datasets: [
-            {
-                label: 'David',
-                data: [2500, 2400, 2650, 1800],
-                borderColor: '#3b82f6',
-                tension: 0.5
-            },
-            {
-                label: 'Yan',
-                data: [1800, 2150, 1950, 2450],
-                borderColor: '#22c55e',
-                tension: 0.5
-            },
-            {
-                label: 'Myat',
-                data: [2200, 1700, 1830, 2000],
-                borderColor: '#b0b0b0',
-                tension: 0.5
-            },
-            {
-                label: 'Hein',
-                data: [1500, 1900, 2450, 2250],
-                borderColor: '#f59e0b',
-                tension: 0.5
-            },
-            {
-                label: 'Allen',
-                data: [2000, 1500, 1720, 1550],
-                borderColor: '#5FC2C9',
-                tension: 0.5
-            },
-            {
-                label: 'Aana',
-                data: [2350, 2000, 2200, 2600],
-                borderColor: '#7844C7',
-                tension: 0.5
-            },
-        ]
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+    datasets: [
+      { label: 'David', data: [2500,2400,2650,1800], borderColor: '#4a7cf7', tension: 0.5, pointRadius: 3 },
+      { label: 'Yan',   data: [1800,2150,1950,2450], borderColor: '#22c55e', tension: 0.5, pointRadius: 3 },
+      { label: 'Myat',  data: [2200,1700,1830,2000], borderColor: '#b0b0b0', tension: 0.5, pointRadius: 3 },
+      { label: 'Hein',  data: [1500,1900,2450,2250], borderColor: '#f59e0b', tension: 0.5, pointRadius: 3 },
+      { label: 'Allen', data: [2000,1500,1720,1550], borderColor: '#5FC2C9', tension: 0.5, pointRadius: 3 },
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#c8d4e8', boxWidth: 12, padding: 10 } },
+      tooltip: { backgroundColor: '#0b0f18', borderColor: '#1e2535', borderWidth: 1, callbacks: { label: c => c.dataset.label + ': AED ' + c.raw } }
     },
-    options: {
-        plugins: {
-            legend: {
-                labels: { color: '#ffffff' }
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.dataset.label + ': AED ' + context.raw;
-                    }
-                }
-            }
-        },
-        scales: {
-            x: {
-                ticks: { color: '#b0b0b0' }
-            },
-            y: {
-                ticks: {
-                    color: '#b0b0b0',
-                    callback: function(value) {
-                        return 'AED ' + value;
-                    }
-                }
-            }
-        }
+    scales: {
+      x: { grid: { color: '#1a2030' } },
+      y: { grid: { color: '#1a2030' }, ticks: { callback: v => 'AED ' + v } }
     }
+  }
 });
 </script>
 </body>
